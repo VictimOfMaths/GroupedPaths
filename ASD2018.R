@@ -12,6 +12,7 @@ library(cowplot)
 library(paletteer)
 
 #Read in Alcohol-Specific Deaths data
+#Original source:https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/bulletins/alcoholrelateddeathsintheunitedkingdom/2018
 Engdata <- fread("Data/ASDEng.csv")
 Waldata <- fread("Data/ASDWal.csv")
 Scodata <- fread("Data/ASDSco.csv")
@@ -68,7 +69,7 @@ data_long <- data_long %>%
   group_by(Country, Year, Age, Cause) %>%
   summarise(Deaths=sum(as.numeric(deaths)))
 
-#Read in 2018 NI data (not separated by age & cause) 
+#Read in 2018 NI data (not separated by age & cause) not included in ONS release
 #from https://www.nisra.gov.uk/publications/alcohol-specific-deaths-2008-2018
 NI2018data <- fread("Data/ASDNI2018.csv")
 data_long <- rbind(data.frame(data_long), data.frame(NI2018data))
