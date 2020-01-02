@@ -1,3 +1,5 @@
+#This file reads Alcohol-specific deaths data from the .csv files in the repo and uses them to draw example grouped path charts
+
 rm(list=ls())
 
 library(data.table)
