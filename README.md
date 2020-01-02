@@ -7,3 +7,5 @@ Original inspiration for this kind of chart came from this chart in the 2018 EMC
 
 <img src="https://user-images.githubusercontent.com/48697887/71674812-2ea14a80-2d74-11ea-946b-d4ba531820c9.PNG" width="15%"></img> 
 
+GroupedPaths.R is the function, ASD2018.R uses the .csv files to produce the various .tiffs
+
