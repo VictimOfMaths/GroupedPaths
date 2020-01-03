@@ -1,4 +1,7 @@
-#rm(list=ls())
+rm(list=ls())
+
+#load function
+source("GroupedPath.R")
 
 library(data.table)
 library(ggplot2)
