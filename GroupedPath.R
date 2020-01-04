@@ -1,11 +1,17 @@
-groupedpath <- function(data, group, time, outcome, fill, xlabel, ylabel){
+groupedpath <- function(data, group, time, outcome, fill, xlabel, ylabel, title, caption){
   #data = the data frame with the original data in to graph
   #group = the grouping variable (e.g. age group) in data, must be an ordered factor in quote marks
+  ########################################################
+  #NB the data frame needs to be ordered on this variable
+  #will try and remove this requirement
+  ########################################################
   #time = the time variable in data, must be continuous in quote marks
   #outcome = the y-axis variable, must be continuous in quote marks
   #fill = the colour to fill the polygons
   #xlabel = the x-axis label for the graph (in quote marks)
   #ylabel = the y-axis label for the graph (in quote marks)
+  #title = the plot title, use empty quotes if not required
+  #caption = the plot caption, use empty quotes if not required
 
   require(ggplot2, cowplot)
   
@@ -50,7 +56,8 @@ groupedpath <- function(data, group, time, outcome, fill, xlabel, ylabel){
     theme_classic()+
     scale_x_continuous(name=xlabel, breaks=seq(n_time/2, n_groups*n_time-n_time/2, by=n_time), labels=group_names)+
     #rescale y-axis to ensure that inset key fits
-    scale_y_continuous(name=ylabel, limits=c(0,max(data[[outcome]]*1.4)))
+    scale_y_continuous(name=ylabel, limits=c(0,max(data[[outcome]]*1.4)))+
+    labs(title=title, caption=caption)
   
   #generate inset graph
   insetvalues <- runif(n_time, 0.5,1)
