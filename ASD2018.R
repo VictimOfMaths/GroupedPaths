@@ -109,35 +109,26 @@ Scocol <- "#44EE77"
 NIcol <- "#FFB001"
 
 #draw plots using the function
-Engplot <- groupedpath(data=subset(data_long_all, Country=="England"), group="Age", time="Year", outcome="mortrate", fill=Engcol, xlabel="Age", ylabel="Annual alcohol-specific deaths per 100,000")
-Walplot <- groupedpath(data=subset(data_long_all, Country=="Wales"), group="Age", time="Year", outcome="mortrate", fill=Walcol, xlabel="Age", ylabel="Annual alcohol-specific deaths per 100,000")
-Scoplot <- groupedpath(data=subset(data_long_all, Country=="Scotland"), group="Age", time="Year", outcome="mortrate", fill=Scocol, xlabel="Age", ylabel="Annual alcohol-specific deaths per 100,000")
-NIplot <- groupedpath(data=subset(data_long_all, Country=="Northern Ireland"), group="Age", time="Year", outcome="mortrate", fill=NIcol, xlabel="Age", ylabel="Annual alcohol-specific deaths per 100,000")
-
-#Add labels/captions
-Eng_title <-   ggdraw()+
-  draw_label("Alcohol-specific deaths in England 2008-2018", x=0, hjust=0)+
-  theme(plot.margin = margin(0, 0, 0, 7))
-
-Engplot <- plot_grid(Eng_title, Engplot, ncol = 1, rel_heights = c(0.1, 1))
-
-Sco_title <-   ggdraw()+
-  draw_label("Alcohol-specific deaths in Scotland 2008-2018", x=0, hjust=0)+
-  theme(plot.margin = margin(0, 0, 0, 7))
-
-Scoplot <- plot_grid(Sco_title, Scoplot, ncol = 1, rel_heights = c(0.1, 1))
-
-Wal_title <-   ggdraw()+
-  draw_label("Alcohol-specific deaths in Wales 2008-2018", x=0, hjust=0)+
-  theme(plot.margin = margin(0, 0, 0, 7))
-
-Walplot <- plot_grid(Wal_title, Walplot, ncol = 1, rel_heights = c(0.1, 1))
-
-NI_title <-   ggdraw()+
-  draw_label("Alcohol-specific deaths in Northern Ireland 2008-2018", x=0, hjust=0)+
-  theme(plot.margin = margin(0, 0, 0, 7))
-
-NIplot <- plot_grid(NI_title, NIplot, ncol = 1, rel_heights = c(0.1, 1))
+Engplot <- groupedpath(data=subset(data_long_all, Country=="England"), group="Age", time="Year", 
+                       outcome="mortrate", fill=Engcol, xlabel="Age", 
+                       ylabel="Annual alcohol-specific deaths per 100,000",
+                       title="Alcohol-specific deaths in England 2008-2018",
+                       caption="Data from ONS | Plot by @VictimOfMaths")
+Walplot <- groupedpath(data=subset(data_long_all, Country=="Wales"), group="Age", time="Year", 
+                       outcome="mortrate", fill=Walcol, xlabel="Age", 
+                       ylabel="Annual alcohol-specific deaths per 100,000",
+                       title="Alcohol-specific deaths in Wales 2008-2018",
+                       caption="Data from ONS | Plot by @VictimOfMaths")
+Scoplot <- groupedpath(data=subset(data_long_all, Country=="Scotland"), group="Age", time="Year", 
+                       outcome="mortrate", fill=Scocol, xlabel="Age", 
+                       ylabel="Annual alcohol-specific deaths per 100,000",
+                       title="Alcohol-specific deaths in Scotland 2008-2018",
+                       caption="Data from ONS | Plot by @VictimOfMaths")
+NIplot <- groupedpath(data=subset(data_long_all, Country=="Northern Ireland"), group="Age", 
+                      time="Year", outcome="mortrate", fill=NIcol, xlabel="Age", 
+                      ylabel="Annual alcohol-specific deaths per 100,000",
+                      title="Alcohol-specific deaths in Northern Ireland 2008-2018",
+                      caption="Data from ONS & NISRA | Plot by @VictimOfMaths")
 
 tiff("Outputs/ASDEng.tiff", units="in", width=9, height=6.6, res=300)
 ggdraw(Engplot)
