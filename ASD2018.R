@@ -195,3 +195,7 @@ ASD4Countries <- ggdraw()+
 tiff("Outputs/ASD4countries.tiff", units="in", width=9, height=6.6, res=300)
 ggdraw(ASD4Countries)
 dev.off()
+
+#Grab data for shared ASD/DRD graphs for Scotland & NI
+ScoNIASDdata <- subset(data_long_all, Country %in% c("Scotland", "Northern Ireland"))
+write.csv(ScoNIASDdata, "Data/ScoNIASDdata.csv")
