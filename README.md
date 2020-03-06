@@ -1,7 +1,7 @@
 # GroupedPaths
 Function and examples to draw grouped path charts like this one:
 
-![Scottish alcohol-specific deaths](https://github.com/VictimOfMaths/GroupedPaths/blob/master/ASDSco.tiff)
+![test](https://user-images.githubusercontent.com/48697887/71674617-973bf780-2d73-11ea-8961-c0485047212f.png)
 
 <img src="https://user-images.githubusercontent.com/48697887/71674617-973bf780-2d73-11ea-8961-c0485047212f.png" width="15%"></img> 
 
